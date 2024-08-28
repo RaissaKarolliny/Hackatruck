@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var showSheet = false
+    
     var body: some View {
-        @State var showSheet = false
+        
         NavigationView{
           
                 ZStack{
@@ -36,6 +38,9 @@ struct ContentView: View {
                         Button("Mostrar Folha") {
                                         showSheet.toggle()
                                                                             }
+                        .frame(width:200,height: 100)
+                        .background(.pink)
+                        .foregroundColor(.white)
                         .sheet(isPresented: $showSheet) {
                             
                                       SheetView()
@@ -60,9 +65,7 @@ struct SheetView: View {
     var body: some View {
         VStack {
             Text("Esta é uma folha!")
-            Button("Fechar") {
-                // Adicione a lógica para fechar a folha aqui, se necessário
-            }
+            
         }
         .padding()
     }

@@ -73,7 +73,7 @@ struct ContentView: View {
                         
                         VStack{
                             ForEach(musicas, id: \.self) { i in
-                                NavigationLink(destination: musica(nome:i.nome,foto:i.foto,cantor: i.cantor)){
+                                NavigationLink(destination: musica(musica:i)){
                                     
                                     HStack{
                                         AsyncImage(url: URL(string: "\(i.foto)")) { phase in

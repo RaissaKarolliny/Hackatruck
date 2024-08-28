@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct musica: View {
-    var nome: String
-    var foto: String
-    var cantor: String
+    var musica: Song
     
     
     var body: some View {
@@ -23,7 +21,7 @@ struct musica: View {
             
             VStack {
                 Spacer()
-                AsyncImage(url: URL(string: foto)) { phase in
+                AsyncImage(url: URL(string: musica.foto)) { phase in
                     switch phase {
                     case .empty:
                         ProgressView()
@@ -42,11 +40,11 @@ struct musica: View {
                     }
                 }
 
-                Text("\(nome)")
+                Text("\(musica.nome)")
                     .bold()
                     .foregroundColor(.white)
                     .padding(2)
-                Text("\(cantor)")
+                Text("\(musica.cantor)")
                     .foregroundColor(.white)
                     .padding(10)
                     Spacer()
@@ -99,5 +97,5 @@ struct musica: View {
 }
 
 #Preview {
-    musica(nome:"",foto:"",cantor:"")
+    musica(musica: Song(nome:" ",foto:" ",cantor:" "))
 }
