@@ -32,7 +32,7 @@ struct modo2: View {
                     .font(.system(size: 15))
                     .padding()
                 
-                NavigationLink(destination: modo2a()){
+                NavigationLink(destination: modo2a(nome: nome)){
                     Text("Acessar tela")
                         .frame(width:100,height: 50)
                         .background(.pink)

@@ -8,13 +8,18 @@
 import SwiftUI
 
 struct modo2a: View {
+    var nome : String
     var body: some View {
         Text("Modo 2")
             .bold()
             .font(.system(size: 35))
+        Text("Volte, \(nome)")
+            .bold()
+            .font(.system(size: 35))
+        
     }
 }
 
 #Preview {
-    modo2a()
+    modo2a(nome : "teste")
 }
