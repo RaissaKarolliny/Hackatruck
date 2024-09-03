@@ -1,0 +1,258 @@
+[
+    {
+        "id": "c87564752f41ddd3",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "abd228de1d5f01b7",
+        "type": "http in",
+        "z": "c87564752f41ddd3",
+        "name": "",
+        "url": "/nome",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 110,
+        "y": 80,
+        "wires": [
+            [
+                "57cd831de7799616"
+            ]
+        ]
+    },
+    {
+        "id": "57cd831de7799616",
+        "type": "cloudantplus in",
+        "z": "c87564752f41ddd3",
+        "name": "raissarodrigues",
+        "cloudant": "94ca986b8b3312ca",
+        "database": "raissa",
+        "service": "_ext_",
+        "search": "_all_",
+        "design": "",
+        "index": "",
+        "x": 300,
+        "y": 80,
+        "wires": [
+            [
+                "278b353b7dd50328"
+            ]
+        ]
+    },
+    {
+        "id": "278b353b7dd50328",
+        "type": "http response",
+        "z": "c87564752f41ddd3",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 490,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "9e3eab81084456d1",
+        "type": "http in",
+        "z": "c87564752f41ddd3",
+        "name": "",
+        "url": "/apipost",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 90,
+        "y": 180,
+        "wires": [
+            [
+                "87d04045e58974ca"
+            ]
+        ]
+    },
+    {
+        "id": "a34967d94224c195",
+        "type": "http response",
+        "z": "c87564752f41ddd3",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 690,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "8f49d0bf96feee61",
+        "type": "cloudantplus out",
+        "z": "c87564752f41ddd3",
+        "name": "raissa rodrigues",
+        "cloudant": "94ca986b8b3312ca",
+        "database": "raissa",
+        "service": "_ext_",
+        "payonly": true,
+        "operation": "insert",
+        "x": 540,
+        "y": 160,
+        "wires": [
+            [
+                "a34967d94224c195"
+            ]
+        ]
+    },
+    {
+        "id": "9711dd1f459128d4",
+        "type": "http in",
+        "z": "c87564752f41ddd3",
+        "name": "",
+        "url": "/delete",
+        "method": "delete",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 120,
+        "y": 280,
+        "wires": [
+            [
+                "64b870f136d11b8c"
+            ]
+        ]
+    },
+    {
+        "id": "64b870f136d11b8c",
+        "type": "cloudantplus out",
+        "z": "c87564752f41ddd3",
+        "name": "raissa rodrigues",
+        "cloudant": "94ca986b8b3312ca",
+        "database": "raissa",
+        "service": "_ext_",
+        "payonly": true,
+        "operation": "delete",
+        "x": 300,
+        "y": 280,
+        "wires": [
+            [
+                "e8a325245d680173"
+            ]
+        ]
+    },
+    {
+        "id": "e8a325245d680173",
+        "type": "http response",
+        "z": "c87564752f41ddd3",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 490,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "df576a4950aa8a40",
+        "type": "http in",
+        "z": "c87564752f41ddd3",
+        "name": "",
+        "url": "/put",
+        "method": "put",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 100,
+        "y": 340,
+        "wires": [
+            [
+                "fe54391c75703195"
+            ]
+        ]
+    },
+    {
+        "id": "fe54391c75703195",
+        "type": "cloudantplus out",
+        "z": "c87564752f41ddd3",
+        "name": "raissa rodrigues",
+        "cloudant": "94ca986b8b3312ca",
+        "database": "raissa",
+        "service": "_ext_",
+        "payonly": true,
+        "operation": "insert",
+        "x": 300,
+        "y": 340,
+        "wires": [
+            [
+                "5180fbc1a895390b"
+            ]
+        ]
+    },
+    {
+        "id": "5180fbc1a895390b",
+        "type": "http response",
+        "z": "c87564752f41ddd3",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 490,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "329607b667476c3b",
+        "type": "split",
+        "z": "c87564752f41ddd3",
+        "name": "",
+        "splt": ",",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 370,
+        "y": 140,
+        "wires": [
+            [
+                "8f49d0bf96feee61"
+            ]
+        ]
+    },
+    {
+        "id": "87d04045e58974ca",
+        "type": "switch",
+        "z": "c87564752f41ddd3",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "btwn",
+                "v": "[",
+                "vt": "str",
+                "v2": "]",
+                "v2t": "str"
+            },
+            {
+                "t": "btwn",
+                "v": "{",
+                "vt": "str",
+                "v2": "}",
+                "v2t": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 230,
+        "y": 180,
+        "wires": [
+            [
+                "329607b667476c3b"
+            ],
+            [
+                "8f49d0bf96feee61"
+            ]
+        ]
+    },
+    {
+        "id": "94ca986b8b3312ca",
+        "type": "cloudantplus",
+        "host": "https://8685b21f-dcdc-4864-a9bc-84e5121ccc12-bluemix.cloudantnosqldb.appdomain.cloud",
+        "name": "",
+        "useapikey": true
+    }
+]
